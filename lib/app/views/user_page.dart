@@ -16,7 +16,6 @@ class UserPage extends StatelessWidget {
                 builder: (context, future) {
                   UserModel user = future.data;
                   if (!future.hasData) {
-                    print(_back.userName);
                     return Center(
                       child: CircularProgressIndicator(),
                     );
@@ -25,18 +24,21 @@ class UserPage extends StatelessWidget {
                   } else {
                     UserModel user = future.data as UserModel;
                     
-                    return UserCard(container: container(user.avatarUrl),user: user,);
+                    return Padding(
+                      padding: EdgeInsets.all(10),
+                      child: SafeArea(
+                        child: Column(
+                          children: [
+                            UserCard(container: container(user.avatarUrl),user: user,)
+                          ],
+                        ),
+                      ),
+                    );
                   }
                 })));
   }
 }
 
-CircleAvatar circleAvatar(String url) {
-  return CircleAvatar(
-    radius: 25,
-    backgroundImage: NetworkImage(url),
-  );
-}
 
 Widget container(String url) {
   return Container(
