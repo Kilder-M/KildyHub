@@ -6,12 +6,9 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 
-import 'package:git_api/app/controller_views/home_controller.dart';
+
 
 
 
 void main() async {
- var controller = HomeController();
-
- print(controller.user) ;
 }
