@@ -28,9 +28,7 @@ abstract class _UserPageControllerBack with Store{
     getUser();
   }
 
-  void a(){
-    
-  }
+  
   
 
 
