@@ -9,6 +9,21 @@ part of 'user_page_controller_back.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$UserPageControllerBack on _UserPageControllerBack, Store {
+  final _$widgetAtom = Atom(name: '_UserPageControllerBack.widget');
+
+  @override
+  ObservableFuture<Widget> get widget {
+    _$widgetAtom.reportRead();
+    return super.widget;
+  }
+
+  @override
+  set widget(ObservableFuture<Widget> value) {
+    _$widgetAtom.reportWrite(value, super.widget, () {
+      super.widget = value;
+    });
+  }
+
   final _$userAtom = Atom(name: '_UserPageControllerBack.user');
 
   @override
@@ -22,6 +37,13 @@ mixin _$UserPageControllerBack on _UserPageControllerBack, Store {
     _$userAtom.reportWrite(value, super.user, () {
       super.user = value;
     });
+  }
+
+  final _$resultAsyncAction = AsyncAction('_UserPageControllerBack.result');
+
+  @override
+  Future<dynamic> result() {
+    return _$resultAsyncAction.run(() => super.result());
   }
 
   final _$_UserPageControllerBackActionController =
@@ -41,6 +63,7 @@ mixin _$UserPageControllerBack on _UserPageControllerBack, Store {
   @override
   String toString() {
     return '''
+widget: ${widget},
 user: ${user}
     ''';
   }

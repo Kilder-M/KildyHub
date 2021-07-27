@@ -17,8 +17,10 @@ class RepositoryList extends StatelessWidget {
                               child: ListView.builder(
                                   itemCount: user.repositories.length,
                                   itemBuilder: (context, i) {
+                                    
+                                    user.repositories.sort((a,b) => b.stargazersCount.compareTo(a.stargazersCount));
                                     var repositories = user.repositories[i];
-                                    var repositorieLanguage = (user.repositories[i].language == null) ? '' : user.repositories[i].language;
+                                    var repositoryLanguage = (user.repositories[i].language == null) ? '' : user.repositories[i].language;
                                     return Card(
                                         elevation: 20,
                                         shape: RoundedRectangleBorder(
@@ -27,7 +29,7 @@ class RepositoryList extends StatelessWidget {
                                         child: ListTile(
                                           subtitle: Row(children: [
                                             Text('Linguagem: '),
-                                            Text('${repositorieLanguage}'),
+                                            Text(repositoryLanguage),
                                           ],),
                                           trailing: Container(
                                             width: 45,

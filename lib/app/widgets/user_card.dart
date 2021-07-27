@@ -4,14 +4,15 @@ import 'package:git_api/app/model/user_model.dart';
 
 class UserCard extends StatelessWidget {
   final UserModel user;
-  final Widget container;
+  
 
-  const UserCard({Key key, this.user, this.container}) : super(key: key);
+  const UserCard({Key key, this.user, }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return 
       Card(
+        elevation: 4,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0)),
         child: Container(
@@ -24,7 +25,7 @@ class UserCard extends StatelessWidget {
               textDirection: TextDirection.ltr,
               
               children: [
-                container,
+                circleImage(user.avatarUrl),
                 SizedBox(width: 5,),
                 
               Column(
@@ -58,4 +59,14 @@ class UserCard extends StatelessWidget {
       
     
   }
+}
+
+Widget circleImage(String url) {
+  return Container(
+      width: 80,
+      height: 80,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(100),
+        image: DecorationImage(fit: BoxFit.fill, image: NetworkImage(url)),
+      ));
 }
