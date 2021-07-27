@@ -16,6 +16,10 @@ class UserCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0)),
         child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: Colors.cyanAccent[400])
+          ),
           width: double.infinity,
           height: 100,
           child: Padding(
@@ -31,20 +35,20 @@ class UserCard extends StatelessWidget {
               Column(
                 children: [
                   
-                  Text(user.name,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                  Text(user.name,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.cyanAccent[400]),),
                   SizedBox(height: 5,),
                   Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                Text('${user.publicRepos}', style: TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.bold),),
-                SizedBox(width: 2,),
+                Text('${user.publicRepos}', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold),),
+                SizedBox(width: 1,),
                 Text(' repositórios', style: TextStyle(fontSize: 12,),),
-                SizedBox(width: 12,),
-                Text('${user.followers}', style: TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.bold),),
-                SizedBox(width: 2,),
-                Text(' seguidores', style: TextStyle(fontSize: 12,),),
-                SizedBox(width: 12,),
-                Text('${user.following}', style: TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.bold),),
+                SizedBox(width: 8,),
+                Text('${user.followers}', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold),),
+                SizedBox(width: 1,),
+                Text(' seguidores', style: TextStyle(fontSize: 12),),
+                SizedBox(width: 8,),
+                Text('${user.following}', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold),),
                 Text(' seguindo', style: TextStyle(fontSize: 12,),),
           
               ],),  

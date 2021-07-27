@@ -22,28 +22,36 @@ class RepositoryList extends StatelessWidget {
                 ? ''
                 : user.repositories[i].language;
             return Card(
+                
                 elevation: 20,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
-                child: ListTile(
-                  subtitle: Row(
-                    children: [
-                      Text('Linguagem: '),
-                      Text(repositoryLanguage),
-                    ],
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.cyanAccent[400])
                   ),
-                  trailing: Container(
-                    width: 45,
-                    child: Row(
+                  child: ListTile(
+                    subtitle: Row(
                       children: [
-                        Text('${repositories.stargazersCount}'),
-                        Icon(Icons.star_border_outlined)
+                        Text('Linguagem: ',),
+                        Text(repositoryLanguage,),
                       ],
                     ),
-                  ),
-                  title: Text(
-                    repositories.name,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    trailing: Container(
+                      width: 55,
+
+                      child: Row(
+                        children: [
+                          Text('${repositories.stargazersCount}',),
+                          Icon(Icons.star_border_outlined,color: Colors.cyanAccent[250],)
+                        ],
+                      ),
+                    ),
+                    title: Text(
+                      repositories.name,
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold,color: Colors.cyanAccent[400]),
+                    ),
                   ),
                 ));
           }),
